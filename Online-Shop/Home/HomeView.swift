@@ -3,6 +3,7 @@ import SwiftUI
 struct HomeView: View {
     @State private var itemViewModel = ItemViewModel()
     @State private var user = User(itemsInBasket: [])
+ 
     @State var requestedCategory = 0
     var categoryString: String {
         switch requestedCategory {
