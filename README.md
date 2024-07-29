@@ -21,40 +21,6 @@ The `fetchProducts` function performs the following:
 3. **Maps to Internal Model**: Transforms `ProductResponse` into `ItemModel`.
 4. **Updates State**: Refreshes the application’s data state.
 
-#### Example Implementation
-
-```swift
-func fetchProducts() {
-    let url = URL(string: "https://fakestoreapi.com/products")!
-
-    let task = URLSession.shared.dataTask(with: url) { data, response, error in
-        guard let data = data, error == nil else { return }
-
-        do {
-            let productResponses = try JSONDecoder().decode([ProductResponse].self, from: data)
-            let itemModels = productResponses.map { productResponse in
-                ItemModel(
-                    id: productResponse.id,
-                    title: productResponse.title,
-                    price: productResponse.price,
-                    description: productResponse.description,
-                    image: productResponse.image,
-                    category: productResponse.category,
-                    rating: Rating(rate: productResponse.rating.rate, count: productResponse.rating.count)
-                )
-            }
-            DispatchQueue.main.async {
-                self.items = itemModels
-            }
-        } catch {
-            // Handle error
-        }
-    }
-    task.resume()
-}
-
-
-```
 
 ### Week 1
 
