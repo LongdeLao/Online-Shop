@@ -38,7 +38,9 @@ struct ItemModel: Codable, Identifiable {
         let rate: Double
         let count: Int
     }
-    var count = 0 //own values
+    
+    // individual properties can be added before but must have a default value. Additionally fetchProducts has to be updated
+    var count = 0
     
 
 }

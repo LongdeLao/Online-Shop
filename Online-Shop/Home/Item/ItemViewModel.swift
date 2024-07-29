@@ -24,6 +24,7 @@ class ItemViewModel {
                             category: productResponse.category,
                             image: productResponse.image,
                             rating: ItemModel.Rating(rate: productResponse.rating.rate, count: productResponse.rating.count),
+                            
                             count: 0 // Initial count
                         )
                     }

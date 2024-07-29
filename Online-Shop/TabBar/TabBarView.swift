@@ -7,34 +7,6 @@
 
 import SwiftUI
 
-//struct CustomTabBar:View {
-//    var body: some View {
-//        VStack{
-//            Spacer()
-//            HStack(spacing: 80){
-//                VStack{
-//                    Image(systemName: "house")
-//                    Text("Home")
-//                        .font(.system(size: 12))
-//                }
-//                .tag(1)
-//                VStack{
-//                    Image(systemName: "list.bullet.clipboard")
-//                    Text("Orders")
-//                        .font(.system(size: 12))
-//                }
-//                .tag(2)
-//                VStack{
-//                    Image(systemName: "person")
-//                    Text("Profile")
-//                        .font(.system(size: 12))
-//                }
-//                .tag(3)
-//            }
-//        }
-//    }
-//}
-
 struct TabBarView: View {
     var body: some View {
         ZStack{
