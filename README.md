@@ -1,5 +1,5 @@
 # Online-Shop
-This is an iOS Project created with Swift and SwiftUI that serves as a blueprint or inspiration for mobile Online Shops
+This is an iOS Project developed with Swift and SwiftUI that serves as a blueprint or inspiration for mobile Online Shops
 
 ### Week 1
 
