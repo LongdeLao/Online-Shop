@@ -6,6 +6,9 @@ class ItemViewModel {
     var products: [ItemModel] = []
     var categories: [String] = []
     
+    var clothing: [ItemModel] = []
+    var electronics: [ItemModel] = []
+    var jewelery: [ItemModel] = []
     func fetchProducts() {
         print("fetching data...")
         guard let url = URL(string: "https://fakestoreapi.com/products") else { return }
@@ -36,7 +39,16 @@ class ItemViewModel {
         }
         task.resume()
     }
-    
+    func computeProperties(category requestedCategory: String) -> [ItemModel]{
+        if requestedCategory == "Clothing"{
+           return products.filter { $0.category == "men\'s clothing" ||  $0.category == "women\'s clothing" }
+        } else if requestedCategory == "Electronics"{
+          return  products.filter { $0.category == "electronics"}
+        } else if requestedCategory == "Jewelery" {
+           return  products.filter { $0.category == "jewelery"}
+        }
+        return []
+    }
     func extractCategories() {
         let allCategories = products.map { $0.category }
         categories = Array(Set(allCategories)).sorted()

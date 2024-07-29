@@ -22,6 +22,7 @@
 		093040EF2C56752A00BF9763 /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093040EE2C56752A00BF9763 /* StarRating.swift */; };
 		093040F22C567AB800BF9763 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093040F12C567AB800BF9763 /* UserModel.swift */; };
 		093040F42C567E9C00BF9763 /* AddToBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093040F32C567E9C00BF9763 /* AddToBasket.swift */; };
+		0984C5492C574CAE00D938FC /* CategoriesFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0984C5482C574CAE00D938FC /* CategoriesFilter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		093040EE2C56752A00BF9763 /* StarRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
 		093040F12C567AB800BF9763 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		093040F32C567E9C00BF9763 /* AddToBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToBasket.swift; sourceTree = "<group>"; };
+		0984C5482C574CAE00D938FC /* CategoriesFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			children = (
 				093040E12C564DD400BF9763 /* BasketView.swift */,
 				093040E32C564EA000BF9763 /* HomeView.swift */,
+				0984C5482C574CAE00D938FC /* CategoriesFilter.swift */,
 				093040F32C567E9C00BF9763 /* AddToBasket.swift */,
 				093040ED2C56730A00BF9763 /* Item */,
 			);
@@ -235,6 +238,7 @@
 				093040E72C565B9F00BF9763 /* ItemView.swift in Sources */,
 				093040DB2C55DAE900BF9763 /* PaymentMethodView.swift in Sources */,
 				093040D62C55C19800BF9763 /* TabBarView.swift in Sources */,
+				0984C5492C574CAE00D938FC /* CategoriesFilter.swift in Sources */,
 				093040E42C564EA000BF9763 /* HomeView.swift in Sources */,
 				093040E22C564DD400BF9763 /* BasketView.swift in Sources */,
 				093040C42C55B91600BF9763 /* Online_ShopApp.swift in Sources */,

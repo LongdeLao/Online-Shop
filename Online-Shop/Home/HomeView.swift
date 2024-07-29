@@ -3,13 +3,30 @@ import SwiftUI
 struct HomeView: View {
     @State private var itemViewModel = ItemViewModel()
     @State private var user = User(itemsInBasket: [])
+    @State var requestedCategory = 0
+    var categoryString: String {
+        switch requestedCategory {
+        case 0:
+            "Electronics"
+        case 1:
+            "Jewelery"
+        case 2:
+            "Clothing"
+        default:
+            "Electronics"
+        }
+    }
+
+    
+
 
     var body: some View {
         ZStack(alignment: .bottomLeading) {
             NavigationView {
                 ScrollView {
                     LazyVStack(spacing: 20) {
-                        ForEach(itemViewModel.products) { product in
+                        CategoriesFilter(selectedTab: $requestedCategory)
+                        ForEach(itemViewModel.computeProperties(category: categoryString)) { product in
                             VStack(alignment: .leading) {
                                 AsyncImage(url: URL(string: product.image)) { image in
                                     image
