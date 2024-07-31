@@ -27,44 +27,51 @@ struct HomeView: View {
                 ScrollView {
                     LazyVStack(spacing: 20) {
                         CategoriesFilter(selectedTab: $requestedCategory)
-                        ForEach(itemViewModel.computeProperties(category: categoryString)) { product in
-                            VStack(alignment: .leading) {
-                                AsyncImage(url: URL(string: product.image)) { image in
-                                    image
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                } placeholder: {
-                                    ProgressView()
-                                }
-                                .frame(height: 200)
-                                .cornerRadius(10)
-
-                                Text(product.title)
-                                    .font(.headline)
-                                    .padding(.top, 5)
-
-                                HStack {
-                                    Text("$\(product.price, specifier: "%.2f")")
-                                        .font(.subheadline)
-                                        .foregroundColor(.secondary)
-                                    StarRating(rating: product.rating.rate, maxRating: 5)
-                                        .scaleEffect(0.8)
-                                    Text("(\(product.rating.count))")
-                                        .font(.subheadline)
-                                        .foregroundColor(.secondary)
+                        if itemViewModel.success{
+                            ForEach(itemViewModel.computeProperties(category: categoryString)) { product in
+                                VStack(alignment: .leading) {
+                                    AsyncImage(url: URL(string: product.image)) { image in
+                                        image
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
+                                    .frame(height: 200)
+                                    .cornerRadius(10)
                                     
-                                    AddToBasket()
+                                    Text(product.title)
+                                        .font(.headline)
+                                        .padding(.top, 5)
+                                    
+                                    HStack {
+                                        Text("$\(product.price, specifier: "%.2f")")
+                                            .font(.subheadline)
+                                            .foregroundColor(.secondary)
+                                        StarRating(rating: product.rating.rate, maxRating: 5)
+                                            .scaleEffect(0.8)
+                                        Text("(\(product.rating.count))")
+                                            .font(.subheadline)
+                                            .foregroundColor(.secondary)
+                                        
+                                        AddToBasket()
+                                    }
+                                    
+                                    Text(product.description)
+                                        .font(.body)
+                                        .lineLimit(2)
+                                        .padding(.top, 2)
                                 }
-
-                                Text(product.description)
-                                    .font(.body)
-                                    .lineLimit(2)
-                                    .padding(.top, 2)
+                                .padding()
+                                .background(RoundedRectangle(cornerRadius: 10).fill(Color.white).shadow(radius: 5))
+                                .padding(.horizontal)
                             }
-                            .padding()
-                            .background(RoundedRectangle(cornerRadius: 10).fill(Color.white).shadow(radius: 5))
-                            .padding(.horizontal)
+                        } else {
+                            VStack{
+                                Text("No conection, please check your internet connection")
+                            }
                         }
+                        
                     }
                     .padding(.top)
                 }

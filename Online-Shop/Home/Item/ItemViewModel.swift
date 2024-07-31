@@ -5,7 +5,7 @@ import Observation
 class ItemViewModel {
     var products: [ItemModel] = []
     var categories: [String] = []
-    
+    var success = false
     var clothing: [ItemModel] = []
     var electronics: [ItemModel] = []
     var jewelery: [ItemModel] = []
@@ -17,6 +17,7 @@ class ItemViewModel {
           
             do {
                 let productResponses = try JSONDecoder().decode([ProductResponse].self, from: data)
+                self?.success = true 
                 DispatchQueue.main.async {
                     self?.products = productResponses.map { productResponse in
                         ItemModel(
