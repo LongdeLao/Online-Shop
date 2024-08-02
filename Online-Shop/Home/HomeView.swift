@@ -3,6 +3,7 @@ import SwiftUI
 struct HomeView: View {
     @State private var itemViewModel = ItemViewModel()
     @State private var user = User(itemsInBasket: [])
+    @State private var timeOut = false
  
     @State var requestedCategory = 0
     var categoryString: String {
@@ -67,9 +68,22 @@ struct HomeView: View {
                                 .padding(.horizontal)
                             }
                         } else {
-                            VStack{
-                                Text("No conection, please check your internet connection")
-                            }
+                            VStack {
+                                        if timeOut {
+                                            VStack {
+                                                Text("No connection, please check your internet connection")
+                                            }
+                                            .padding()
+                                        } else {
+                                            ProgressView()
+                                                .onAppear {
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                                        timeOut = true
+                                                    }
+                                                }
+                                                .padding()
+                                        }
+                                    }
                         }
                         
                     }
@@ -85,7 +99,24 @@ struct HomeView: View {
             BasketView()
                 .padding(.bottom, 20)
         }
+        .refreshable {
+            await refreshContent()
+        }
+        
+        
     }
+    private func refreshContent() async {
+            // Simulate a network refresh or some action
+            await Task.sleep(2 * 1_000_000_000) // 2 seconds delay
+        
+            itemViewModel.fetchProducts()
+        if !itemViewModel.products.isEmpty {
+            timeOut = false
+        } else {
+            timeOut = true
+        }
+            // Optionally reset other state variables if needed
+        }
 }
 
 #Preview {
